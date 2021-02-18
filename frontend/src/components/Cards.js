@@ -11,11 +11,13 @@ const Cards = () => {
       .then((r) => r.json())
       .then((r) => {
         console.log(r);
+        setDetails(state => [...state,...r])
         data.push(r);
       })
       .then((r) => {
         setLoading(true);
-        setDetails([...data]);
+        //setDetails([...details,data]);
+        
         setLoading(false);
       })
       .catch((e) => {
@@ -34,12 +36,12 @@ const Cards = () => {
                 <Card style={{ width: "18rem" }}>
                   <Card.Img
                     variant="top"
-                    src={value[index].img}
+                    src={value.img}
                     style={{ height: "150px", width: "200px" }}
                   />
                   <Card.Body>
-                    <Card.Title>{value[index].title}</Card.Title>
-                    <Card.Text>{value[index].description}</Card.Text>
+                    <Card.Title>{value.title}</Card.Title>
+                    <Card.Text>{value.description}</Card.Text>
                   </Card.Body>
                 </Card>
               </div>

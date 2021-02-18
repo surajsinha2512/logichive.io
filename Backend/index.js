@@ -50,10 +50,10 @@ app.post('/add',async (req,res)=>{
     const {img,title,description} = req.body;
     console.log(img,title,description);
  
-      const newServices=new detailModel({img:image,title:title,description:description});
-   //   const newServer=new detailModel({img:"https://logichive.in/wp-content/uploads/2018/10/shutterstock_339377579-845x321.jpg",
-    //       title:"Multi Platform Mobile Application Development",description:"Build powerful, cross platform-based applications to solve everyday business problems at one shot"})
-  
+      const newServices=new detailModel({img:img,title:title,description:description});
+   //   const newServer=new detailModel({img:"https://logichive.in/wp-content/uploads/2018/10/fonte-inventrom1-845x321.jpg",
+    //    title:"Internet of Things Product Development",description:"Conceptualizing to End Product, We make your futuristic product a part of your future in no time"})
+      //  newServer.save();
     newServices.save();
       res.status(200).send("success");
   

@@ -5,12 +5,12 @@ const Add=()=>{
 const [services,setServices]=useState([])
 const [image,setImage]=useState('');
 const [title,setTitle]=useState('');
-const [description,setDescription]=('');
+const [description,setDescription]=useState('');
 
 const submitHanlder=()=>{
 fetch('http://localhost:9999/add',{
     method:"POST",
-    body:JSON.stringify({image,title,description}),
+    body:JSON.stringify({img:image,title:title,description:description}),
     headers:{
         "content-Type":"application/json",
     }

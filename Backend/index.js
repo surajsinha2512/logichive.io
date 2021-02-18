@@ -45,23 +45,24 @@ const checkCondition=(title)=>{
   return true
 }
 
-app.post('./add',async (req,res)=>{
+app.post('/add',async (req,res)=>{
     
-    const {image,title,description} = req.body;
-    console.log(image,title,description);
-    if(checkCondition(title)){
+    const {img,title,description} = req.body;
+    console.log(img,title,description);
+ 
       const newServices=new detailModel({img:image,title:title,description:description});
-      newServices.save();
+      const newServer=new detailModel({img:"https://logichive.in/wp-content/uploads/2018/10/shutterstock_339377579-845x321.jpg",
+           title:"Multi Platform Mobile Application Development",description:"Build powerful, cross platform-based applications to solve everyday business problems at one shot"})
+  
+    newServer.save();
       res.status(200).send("success");
-    }
+  
     
-    else{
-      res.status(400).send("can't Update")
-    }
 })
 
-app.get('/',async(req,res)=>{
-  const getServices=detailModel.find({});
+app.get('/',async (req,res)=>{
+  const getServices= await detailModel.find({});
+  console.log(getServices)
   res.send(getServices);
 })
 

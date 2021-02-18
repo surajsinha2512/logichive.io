@@ -1,21 +1,22 @@
 import React, {useState,useEffect} from 'react';
-import {Card,ListGroup,ListGroupItem} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 
 const Cards=()=>{
-   const [details , setDetails]=useState([{img:"https://logichive.in/wp-content/uploads/2018/10/shutterstock_339377579-845x321.jpg",title:"Multi Platform Mobile Application Development",description:"Build powerful, cross platform-based applications to solve everyday business problems at one shot"},
-             {img:"https://logichive.in/wp-content/uploads/2018/10/fonte-inventrom1-845x321.jpg",title:"Internet of Things Product Development",description:"Conceptualizing to End Product, We make your futuristic product a part of your future in no time"}]);
+   const [details,setDetails]=useState([]);
 
 
     useEffect(()=>{
-           fetch('http://localhost:9999/').then((r)=>{
+           fetch('http://localhost:9999').then((r)=>{
               return r.json();
            }).then((r)=>{
                console.log(r);
-            setDetails(...details, {img:r.img,title:r.title,des:r.description})
+            setDetails([...details, {img:r.img,title:r.title,description:r.description}])
+            console.log(details)
+           }).catch((e)=>{
+             console.log("error"+e)
            })
     },[])
     
-   
 
 return(
     <>

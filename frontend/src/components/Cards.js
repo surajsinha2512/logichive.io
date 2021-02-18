@@ -32,14 +32,14 @@ const Cards = () => {
           return (
             <>
               {console.log(value,index)}
-              <div className="card">
-                <Card style={{ width: "18rem" }}>
+              <div className="card" style={{margin:"18px"}}>
+                <Card style={{ width: "18rem"}}>
                   <Card.Img
                     variant="top"
                     src={value.img}
-                    style={{ height: "150px", width: "200px" }}
+                    style={{ height: "150px", width: "300px" }}
                   />
-                  <Card.Body>
+                  <Card.Body >
                     <Card.Title>{value.title}</Card.Title>
                     <Card.Text>{value.description}</Card.Text>
                   </Card.Body>

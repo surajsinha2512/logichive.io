@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-
+import {Button} from 'react-bootstrap';
 
 const Add=()=>{
 const [services,setServices]=useState([])
@@ -24,11 +24,11 @@ fetch('http://localhost:9999/add',{
 return(
     <>
     <div className="container">
-    <form>
-        <input placeholder="image URL" className="img" onChange={(event)=>{setImage(event.target.value)}} />
-        <input placeholder="give title" className="title" onChange={(event)=>{setTitle(event.target.value)}} />
-        <input placeholder="Description" className="Description" onChange={(event)=>{setDescription(event.target.value)}}/>
-      <button onClick={submitHanlder}>Submit Now</button>
+    <form className="form" >
+        <input placeholder="image URL" className="img" onChange={(event)=>{setImage(event.target.value)}} style={{margin:"10px"}} />
+        <input placeholder="give title" className="title" onChange={(event)=>{setTitle(event.target.value)}} style={{margin:"10px"}}/>
+        <input placeholder="Description" className="Description" onChange={(event)=>{setDescription(event.target.value)}} style={{margin:"10px"}}/>
+      <Button onClick={submitHanlder} className="btn btn-primary">Submit Now</Button>
     </form>
     </div>
     </>
